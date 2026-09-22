@@ -1,1 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Estudio Casil Rodríguez · Contador público en Tres de Febrero</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📒</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f3f1ec;
+    --paper-2: #faf9f6;
+    --ink: #16161a;
+    --ink-soft: #4a5161;
+    --muted: #8a8576;
+    --line: #d4cdb9;
+    --gold: #b08d3c;
+    --gold-deep: #8f7130;
+    --gold-soft: #f3ecd9;
+    --card: #ffffff;
+    --shadow: 0 1px 2px rgba(22,22,26,.05), 0 10px 30px rgba(22,22,26,.05);
+  }
+  :root:not([data-theme="light"]) {
+    @media (prefers-color-scheme: dark) {
+      --paper: #17171b;
+      --paper-2: #1d1d22;
+      --ink: #ece7db;
+      --ink-soft: #b7b2a3;
+      --muted: #8e8a7c;
+      --line: #37342a;
+      --gold: #c9a24a;
+      --gold-deep: #dab35d;
+      --gold-soft: #2a2419;
+      --card: #1d1d22;
+      --shadow: 0 1px 2px rgba(0,0,0,.35), 0 10px 30px rgba(0,0,0,.35);
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #17171b;
+    --paper-2: #1d1d22;
+    --ink: #ece7db;
+    --ink-soft: #b7b2a3;
+    --muted: #8e8a7c;
+    --line: #37342a;
+    --gold: #c9a24a;
+    --gold-deep: #dab35d;
+    --gold-soft: #2a2419;
+    --card: #1d1d22;
+    --shadow: 0 1px 2px rgba(0,0,0,.35), 0 10px 30px rgba(0,0,0,.35);
+  }
 
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 24px); }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  h1, h2, h3 { font-family: 'Lora', serif; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; margin: 0; }
+  p { margin: 0; }
+  a { color: inherit; }
+  ::selection { background: var(--gold-soft); }
+
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 1.75rem; }
+
+  /* ── HEADER ── */
+  header {
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 30;
+    background: color-mix(in srgb, var(--paper) 88%, transparent);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--line);
+  }
+  .hbar { display: flex; align-items: center; gap: 0.9rem; padding: 1.05rem 0; }
+  .mark {
+    width: 38px; height: 38px; border: 1.5px solid var(--gold); border-radius: 3px;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    font-family: 'Lora', serif; font-weight: 700; font-size: 1.05rem; color: var(--gold);
+  }
+  .word { font-family: 'Lora', serif; font-weight: 600; font-size: 1.02rem; }
+  .word small { display: block; font-family: 'Inter'; font-weight: 500; font-size: 0.68rem; color: var(--muted); letter-spacing: 0.03em; margin-top: 0.1rem; }
+  nav { margin-left: auto; display: flex; align-items: center; gap: 1.9rem; }
+  nav a { font-size: 0.87rem; color: var(--ink-soft); text-decoration: none; }
+  nav a:hover { color: var(--gold-deep); }
+  .btn {
+    font-family: 'Inter'; font-weight: 600; font-size: 0.84rem; border-radius: 5px;
+    padding: 0.6rem 1.15rem; border: 1px solid transparent; cursor: pointer;
+    text-decoration: none; display: inline-block; transition: all .15s;
+  }
+  .btn-gold { background: var(--gold); color: #fff; }
+  .btn-gold:hover { background: var(--gold-deep); }
+  .btn-line { border-color: var(--line); color: var(--ink); }
+  .btn-line:hover { border-color: var(--gold); color: var(--gold-deep); }
+  @media (max-width: 680px) { nav a.hide-mobile { display: none; } }
+
+  /* ── HERO ── */
+  .hero { padding: 4.5rem 0 3.5rem; }
+  .hero-grid { display: grid; grid-template-columns: 1.35fr 0.9fr; gap: 3.2rem; align-items: center; }
+  .hero h1 { font-size: clamp(2rem, 4.4vw, 3rem); line-height: 1.14; }
+  .hero .lede { margin-top: 1.3rem; font-size: 1.05rem; color: var(--ink-soft); max-width: 46ch; }
+  .hero .cta-row { margin-top: 1.8rem; display: flex; gap: 0.8rem; flex-wrap: wrap; }
+
+  .stamp {
+    justify-self: center; width: 216px; height: 216px; border-radius: 50%;
+    border: 1.5px solid var(--gold); display: flex; flex-direction: column;
+    align-items: center; justify-content: center; text-align: center;
+    position: relative;
+  }
+  .stamp::before {
+    content: ''; position: absolute; inset: 10px; border: 1px solid var(--line); border-radius: 50%;
+  }
+  .stamp .n { font-family: 'Lora', serif; font-weight: 700; font-size: 4.1rem; color: var(--ink); line-height: 1; }
+  .stamp .l { font-size: 0.72rem; color: var(--muted); margin-top: 0.35rem; max-width: 9ch; }
+  @media (max-width: 780px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .stamp { order: -1; width: 168px; height: 168px; }
+    .stamp .n { font-size: 3.2rem; }
+  }
+
+  .rule { border: none; border-top: 1px solid var(--line); margin: 0; }
+
+  /* ── SECTION SHELL ── */
+  section { padding: 3.6rem 0; }
+  .head-row { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; margin-bottom: 1.9rem; flex-wrap: wrap; }
+  .head-row h2 { font-size: 1.65rem; }
+  .head-row .note { font-size: 0.85rem; color: var(--muted); max-width: 32ch; }
+
+  /* ── SERVICES: ledger rows ── */
+  .ledger { border-top: 1px solid var(--line); }
+  .ledger-row {
+    display: grid; grid-template-columns: 15ch 1fr; gap: 1.6rem; align-items: baseline;
+    padding: 1.15rem 0; border-bottom: 1px solid var(--line);
+  }
+  .ledger-row .svc { font-family: 'Lora', serif; font-weight: 600; font-size: 1.02rem; }
+  .ledger-row .desc { font-size: 0.9rem; color: var(--ink-soft); }
+  @media (max-width: 600px) {
+    .ledger-row { grid-template-columns: 1fr; gap: 0.3rem; }
+  }
+
+  /* ── TRAYECTORIA: stat rows ── */
+  .stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+  .stat { padding: 1.6rem 1.5rem; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat .v { font-family: 'Lora', serif; font-weight: 700; font-size: 2rem; }
+  .stat .k { font-size: 0.83rem; color: var(--muted); margin-top: 0.3rem; }
+  @media (max-width: 680px) { .stat-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 420px) { .stat-grid { grid-template-columns: 1fr; } }
+
+  .story { margin-top: 2.2rem; max-width: 62ch; font-size: 0.98rem; color: var(--ink-soft); }
+  .story + .story { margin-top: 0.9rem; }
+
+  /* ── CONTACT ── */
+  .contact-panel {
+    background: var(--card); border: 1px solid var(--line); border-radius: 8px;
+    padding: 2.1rem; box-shadow: var(--shadow);
+    display: grid; grid-template-columns: 1.1fr 1fr; gap: 2.4rem;
+  }
+  .contact-panel h3 { font-size: 1.3rem; margin-bottom: 0.7rem; }
+  .contact-panel .lede { color: var(--ink-soft); font-size: 0.92rem; max-width: 40ch; }
+  .field-line { padding: 0.85rem 0; border-bottom: 1px solid var(--line); font-size: 0.88rem; }
+  .field-line .k { color: var(--muted); display: block; font-size: 0.72rem; margin-bottom: 0.25rem; }
+  .field-line a { color: var(--gold-deep); text-decoration: none; }
+  .field-line a:hover { text-decoration: underline; }
+  @media (max-width: 720px) { .contact-panel { grid-template-columns: 1fr; padding: 1.6rem; } }
+
+  /* ── FOOTER ── */
+  footer { border-top: 1px solid var(--line); padding: 1.8rem 0; }
+  .fbar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; font-size: 0.8rem; color: var(--muted); }
+  .fbar a { color: var(--muted); text-decoration: none; }
+  .fbar a:hover { color: var(--gold-deep); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap hbar">
+    <div class="mark">CR</div>
+    <div class="word">Estudio Casil Rodríguez<small>Contador público · Tres de Febrero</small></div>
+    <nav>
+      <a href="#servicios" class="hide-mobile">Servicios</a>
+      <a href="#trayectoria" class="hide-mobile">Trayectoria</a>
+      <a href="#contacto" class="hide-mobile">Contacto</a>
+      <a href="#contacto" class="btn btn-gold">Solicitar consulta</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>Cincuenta años llevando las cuentas de Tres de Febrero al día.</h1>
+        <p class="lede">Gabriel Eduardo Casil asesora a comercios, industrias y profesionales del oeste del conurbano en todo lo impositivo, laboral y societario — con el trato personal de un estudio de barrio y la puesta al día de una gestión moderna.</p>
+        <div class="cta-row">
+          <a href="#contacto" class="btn btn-gold">Solicitar una consulta</a>
+          <a href="#servicios" class="btn btn-line">Ver servicios</a>
+        </div>
+      </div>
+      <div class="stamp">
+        <div class="n">50</div>
+        <div class="l">años de trayectoria en Tres de Febrero</div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section id="servicios">
+    <div class="wrap">
+      <div class="head-row">
+        <h2>Servicios</h2>
+        <p class="note">Cada cliente tiene un servicio armado a su medida; estos son los ejes principales del estudio.</p>
+      </div>
+      <div class="ledger">
+        <div class="ledger-row">
+          <div class="svc">Asesoramiento integral</div>
+          <div class="desc">Acompañamiento contable, impositivo y societario para la empresa, todo bajo un mismo seguimiento.</div>
+        </div>
+        <div class="ledger-row">
+          <div class="svc">Sueldos e impuestos</div>
+          <div class="desc">Liquidación mensual de sueldos, cargas sociales y presentaciones impositivas al día.</div>
+        </div>
+        <div class="ledger-row">
+          <div class="svc">Contabilidad general</div>
+          <div class="desc">Registración contable y libros en regla, listos para cualquier control o requerimiento.</div>
+        </div>
+        <div class="ledger-row">
+          <div class="svc">Monotributo</div>
+          <div class="desc">Altas, recategorizaciones y presentaciones para monotributistas y profesionales independientes.</div>
+        </div>
+        <div class="ledger-row">
+          <div class="svc">Balances y DDJJ</div>
+          <div class="desc">Balances anuales y declaraciones juradas, preparados con la anticipación que cada vencimiento exige.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section id="trayectoria">
+    <div class="wrap">
+      <div class="head-row">
+        <h2>Trayectoria</h2>
+      </div>
+      <div class="stat-grid">
+        <div class="stat"><div class="v">50 años</div><div class="k">de asesoramiento continuo en la zona</div></div>
+        <div class="stat"><div class="v">Tres de Febrero</div><div class="k">Buenos Aires, GBA — sede del estudio</div></div>
+        <div class="stat"><div class="v">Trato directo</div><div class="k">con el contador titular, no con una mesa de entradas</div></div>
+      </div>
+      <p class="story">El estudio nació y creció en Tres de Febrero acompañando a comercios de barrio, talleres y profesionales que necesitaban algo más que una firma en un balance: alguien que conociera su actividad y les avisara a tiempo cuándo vencía cada obligación.</p>
+      <p class="story">Con el tiempo, esa forma de trabajar se mantuvo igual — y se sumó una gestión digital de clientes, vencimientos y documentación, para que la cercanía de siempre no dependa de una agenda de papel.</p>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section id="contacto">
+    <div class="wrap">
+      <div class="contact-panel">
+        <div>
+          <h3>Hablemos de tu estudio contable</h3>
+          <p class="lede">Contanos qué necesitás y coordinamos una primera reunión sin cargo para ver cómo podemos ayudarte.</p>
+        </div>
+        <div>
+          <div class="field-line"><span class="k">Localidad</span>Tres de Febrero, Buenos Aires</div>
+          <div class="field-line"><span class="k">Consultas</span><a href="https://mail.google.com/mail/?view=cm&fs=1&to=estudiocasil@hotmail.com" target="_blank" rel="noopener">estudiocasil@hotmail.com</a></div>
+          <div class="field-line"><span class="k">Clientes del estudio</span><a href="https://ecr-sistema.up.railway.app" target="_blank" rel="noopener">Acceder al sistema de gestión →</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap fbar">
+    <span>Estudio Casil Rodríguez · Gabriel Eduardo Casil, contador público</span>
+    <a href="https://ecr-sistema.up.railway.app" target="_blank" rel="noopener">Sistema de gestión</a>
+  </div>
+</footer>
+
+</body>
+</html>
