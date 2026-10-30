@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Estudio Casil Rodríguez · Contador público en Tres de Febrero</title>
+<title>Estudio Casil Rodríguez · Contador público en San Martín</title>
+<meta name="description" content="Estudio contable con 50 años de trayectoria en San Martín, Buenos Aires. Asesoramiento impositivo, laboral y societario, sueldos, monotributo, balances y DDJJ.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📒</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -20,8 +21,8 @@
     --card: #ffffff;
     --shadow: 0 1px 2px rgba(22,22,26,.05), 0 10px 30px rgba(22,22,26,.05);
   }
-  :root:not([data-theme="light"]) {
-    @media (prefers-color-scheme: dark) {
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
       --paper: #17171b;
       --paper-2: #1d1d22;
       --ink: #ece7db;
@@ -78,6 +79,15 @@
     display: flex; align-items: center; justify-content: center; flex-shrink: 0;
     font-family: 'Lora', serif; font-weight: 700; font-size: 1.05rem; color: var(--gold);
   }
+  .logo { display:block; flex-shrink:0; }
+  .logo img { height: 46px; width: auto; display:block; }
+  .logo-d { display:none !important; }
+  .logo-l { mix-blend-mode: multiply; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .logo-l { display:none; } :root:not([data-theme="light"]) .logo-d { display:block !important; } }
+  :root[data-theme="dark"] .logo-l { display:none; } :root[data-theme="dark"] .logo-d { display:block !important; }
+  .svc-list { margin:.5rem 0 0; padding-left:1.1rem; font-size:.85rem; color:var(--muted); }
+  .svc-list li { margin:.15rem 0; }
+  .legal { margin-top:.35rem; font-size:.74rem; }
   .word { font-family: 'Lora', serif; font-weight: 600; font-size: 1.02rem; }
   .word small { display: block; font-family: 'Inter'; font-weight: 500; font-size: 0.68rem; color: var(--muted); letter-spacing: 0.03em; margin-top: 0.1rem; }
   nav { margin-left: auto; display: flex; align-items: center; gap: 1.9rem; }
@@ -174,8 +184,7 @@
 
 <header>
   <div class="wrap hbar">
-    <div class="mark">CR</div>
-    <div class="word">Estudio Casil Rodríguez<small>Contador público · Tres de Febrero</small></div>
+    <a href="#" class="logo" aria-label="Estudio Casil Rodríguez"><img class="logo-l" src="/logo.png" alt="ECR · Estudio Casil Rodríguez · 50 años"><img class="logo-d" src="/logo-oscuro.png" alt="" aria-hidden="true"></a>
     <nav>
       <a href="#servicios" class="hide-mobile">Servicios</a>
       <a href="#trayectoria" class="hide-mobile">Trayectoria</a>
@@ -190,8 +199,8 @@
   <section class="hero">
     <div class="wrap hero-grid">
       <div>
-        <h1>Cincuenta años llevando las cuentas de Tres de Febrero al día.</h1>
-        <p class="lede">Gabriel Eduardo Casil asesora a comercios, industrias y profesionales del oeste del conurbano en todo lo impositivo, laboral y societario — con el trato personal de un estudio de barrio y la puesta al día de una gestión moderna.</p>
+        <h1>Cincuenta años llevando las cuentas de San Martín al día.</h1>
+        <p class="lede">Gabriel Eduardo Casil asesora a comercios, industrias y profesionales del zona de San Martín y el conurbano norte en todo lo impositivo, laboral y societario — con el trato personal de un estudio de barrio y la puesta al día de una gestión moderna.</p>
         <div class="cta-row">
           <a href="#contacto" class="btn btn-gold">Solicitar una consulta</a>
           <a href="#servicios" class="btn btn-line">Ver servicios</a>
@@ -199,7 +208,7 @@
       </div>
       <div class="stamp">
         <div class="n">50</div>
-        <div class="l">años de trayectoria en Tres de Febrero</div>
+        <div class="l">años de trayectoria en San Martín</div>
       </div>
     </div>
   </section>
@@ -215,23 +224,23 @@
       <div class="ledger">
         <div class="ledger-row">
           <div class="svc">Asesoramiento integral</div>
-          <div class="desc">Acompañamiento contable, impositivo y societario para la empresa, todo bajo un mismo seguimiento.</div>
+          <div class="desc">Acompañamiento contable, impositivo y societario para la empresa, todo bajo un mismo seguimiento.<ul class="svc-list"><li>Planificación impositiva</li><li>Asistencia ante ARCA y ARBA</li><li>Constitución y reformas de sociedades</li></ul></div>          
         </div>
         <div class="ledger-row">
           <div class="svc">Sueldos e impuestos</div>
-          <div class="desc">Liquidación mensual de sueldos, cargas sociales y presentaciones impositivas al día.</div>
+          <div class="desc">Liquidación mensual de sueldos, cargas sociales y presentaciones impositivas al día.<ul class="svc-list"><li>Recibos de sueldo y cargas sociales</li><li>IVA, Ganancias e Ingresos Brutos</li><li>Altas y bajas de personal</li></ul></div>          
         </div>
         <div class="ledger-row">
           <div class="svc">Contabilidad general</div>
-          <div class="desc">Registración contable y libros en regla, listos para cualquier control o requerimiento.</div>
+          <div class="desc">Registración contable y libros en regla, listos para cualquier control o requerimiento.<ul class="svc-list"><li>Libros contables y de IVA</li><li>Conciliaciones y estados de cuenta</li><li>Informes para bancos y proveedores</li></ul></div>          
         </div>
         <div class="ledger-row">
           <div class="svc">Monotributo</div>
-          <div class="desc">Altas, recategorizaciones y presentaciones para monotributistas y profesionales independientes.</div>
+          <div class="desc">Altas, recategorizaciones y presentaciones para monotributistas y profesionales independientes.<ul class="svc-list"><li>Alta y recategorización</li><li>Facturación electrónica</li><li>Exclusiones y cambios de régimen</li></ul></div>          
         </div>
         <div class="ledger-row">
           <div class="svc">Balances y DDJJ</div>
-          <div class="desc">Balances anuales y declaraciones juradas, preparados con la anticipación que cada vencimiento exige.</div>
+          <div class="desc">Balances anuales y declaraciones juradas, preparados con la anticipación que cada vencimiento exige.<ul class="svc-list"><li>Estados contables anuales</li><li>Ganancias y Bienes Personales</li><li>Certificaciones de ingresos</li></ul></div>          
         </div>
       </div>
     </div>
@@ -246,10 +255,10 @@
       </div>
       <div class="stat-grid">
         <div class="stat"><div class="v">50 años</div><div class="k">de asesoramiento continuo en la zona</div></div>
-        <div class="stat"><div class="v">Tres de Febrero</div><div class="k">Buenos Aires, GBA — sede del estudio</div></div>
+        <div class="stat"><div class="v">San Martín</div><div class="k">Buenos Aires, GBA — sede del estudio</div></div>
         <div class="stat"><div class="v">Trato directo</div><div class="k">con el contador titular, no con una mesa de entradas</div></div>
       </div>
-      <p class="story">El estudio nació y creció en Tres de Febrero acompañando a comercios de barrio, talleres y profesionales que necesitaban algo más que una firma en un balance: alguien que conociera su actividad y les avisara a tiempo cuándo vencía cada obligación.</p>
+      <p class="story">El estudio nació y creció en San Martín acompañando a comercios de barrio, talleres y profesionales que necesitaban algo más que una firma en un balance: alguien que conociera su actividad y les avisara a tiempo cuándo vencía cada obligación.</p>
       <p class="story">Con el tiempo, esa forma de trabajar se mantuvo igual — y se sumó una gestión digital de clientes, vencimientos y documentación, para que la cercanía de siempre no dependa de una agenda de papel.</p>
     </div>
   </section>
@@ -264,8 +273,8 @@
           <p class="lede">Contanos qué necesitás y coordinamos una primera reunión sin cargo para ver cómo podemos ayudarte.</p>
         </div>
         <div>
-          <div class="field-line"><span class="k">Localidad</span>Tres de Febrero, Buenos Aires</div>
-          <div class="field-line"><span class="k">Consultas</span><a href="https://mail.google.com/mail/?view=cm&fs=1&to=estudiocasil@hotmail.com" target="_blank" rel="noopener">estudiocasil@hotmail.com</a></div>
+          <div class="field-line"><span class="k">Localidad</span>San Martín, Buenos Aires, Argentina</div>
+          <div class="field-line"><span class="k">Consultas</span><a href="mailto:estudiocasil@hotmail.com?subject=Consulta%20desde%20la%20web">estudiocasil@hotmail.com</a></div>
           <div class="field-line"><span class="k">Clientes del estudio</span><a href="https://ecr-sistema.up.railway.app" target="_blank" rel="noopener">Acceder al sistema de gestión →</a></div>
         </div>
       </div>
@@ -276,7 +285,7 @@
 
 <footer>
   <div class="wrap fbar">
-    <span>Estudio Casil Rodríguez · Gabriel Eduardo Casil, contador público</span>
+    <div>© <script>document.write(new Date().getFullYear())</script> Estudio Casil Rodríguez · Gabriel Eduardo Casil, contador público · San Martín, Buenos Aires<div class="legal">Los contenidos de este sitio son informativos y no constituyen asesoramiento profesional hasta formalizar la contratación del servicio.</div></div>
     <a href="https://ecr-sistema.up.railway.app" target="_blank" rel="noopener">Sistema de gestión</a>
   </div>
 </footer>
